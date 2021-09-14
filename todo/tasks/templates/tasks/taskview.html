@@ -1,0 +1,123 @@
+{%  extends 'tasks/main.html' %}
+{% block content %}
+
+<section class="vh-100 my-5">
+    <div class="container main-container h-50">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card mt-5" id="list1">
+                    <div class="card-body py-4 px-4 px-md-5">
+
+                        <!-- Add Field  -->
+                        <div class="pb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-row  justify-content-between align align-items-center">
+                                        <form class="form-inline my-2 my-lg-0">
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                                aria-label="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0"
+                                                type="submit">Search</button>
+                                        </form>
+                                        <div>
+                                            <a href="{% url 'createTask' %}" title="add item" class="">
+                                                <i class="fas fa-plus-square add-icon text-primary mr-auto mx-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Field Ends -->
+
+                        <!-- Tabs -->
+
+                        <ul class="list-group my-2">
+                            {% for task in tasks %}
+                            <li
+                                class="list-group-item d-flex align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-3">
+                                <div class="d-flex align-items-center form-control-md">
+                                    <input class="form-check-input mx-1" type="checkbox" value="" aria-label="..." />
+                                </div>
+                                <div class="mx-5 todo-text">
+                                    <p class="mb-0">{{ task.name }}</p>
+                                </div>
+                                <div class="ml-auto todo-icon">
+                                    <a href="{% url 'updateTask' task.id %}" data-mdb-toggle="tooltip"
+                                        title="Update item">
+                                        <i class="fas fa-edit edit-icon text-primary mx-2"></i>
+                                    </a>
+                                    <a href="{% url 'deleteTask' task.id %}" data-mdb-toggle="tooltip"
+                                        title="Remove item">
+                                        <i class="fas fa-times del-icon text-primary mx-2"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                            <!-- testing -->
+
+                            <!-- <li
+                                class="list-group-item d-flex align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-3">
+                                <div class="d-flex align-items-center form-control-md">
+                                    <input class="form-check-input mx-1" type="checkbox" value="" aria-label="..." />
+                                </div>
+                                <div class="mx-5 todo-text">
+                                    <p class="mb-0">Some placeholder content in a paragraph.</p>
+                                </div>
+                                <div class="ml-auto todo-icon">
+                                    <a href="#" title="Update item">
+                                        <i class="fas fa-edit edit-icon text-primary mx-2"></i>
+                                    </a>
+                                    <a href="#" title="Remove item">
+                                        <i class="fas fa-times del-icon text-primary mx-2"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li
+                                class="list-group-item d-flex align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-3">
+                                <div class="d-flex align-items-center form-control-md">
+                                    <input class="form-check-input mx-1" type="checkbox" value="" aria-label="..." />
+                                </div>
+                                <div class="mx-5 todo-text">
+                                    <p class="mb-0">Some placeholder content in a paragraph.</p>
+                                </div>
+                                <div class="ml-auto todo-icon">
+                                    <a href="#" data-mdb-toggle="tooltip" title="Update item">
+                                        <i class="fas fa-edit edit-icon text-primary mx-2"></i>
+                                    </a>
+                                    <a href="#" data-mdb-toggle="tooltip" title="Remove item">
+                                        <i class="fas fa-times del-icon text-primary mx-2"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li
+                                class="list-group-item d-flex align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-3">
+                                <div class="d-flex align-items-center form-control-md">
+                                    <input class="form-check-input mx-1" type="checkbox" value="" aria-label="..." />
+                                </div>
+                                <div class="mx-5 todo-text">
+                                    <p class="mb-0">Some placeholder content in a paragraph.</p>
+                                </div>
+                                <div class="ml-auto todo-icon">
+                                    <a href="#" data-mdb-toggle="tooltip" title="Update item">
+                                        <i class="fas fa-edit edit-icon text-primary mx-2"></i>
+                                    </a>
+                                    <a href="#" data-mdb-toggle="tooltip" title="Remove item">
+                                        <i class="fas fa-times del-icon text-primary mx-2"></i>
+                                    </a>
+                                </div>
+                            </li> -->
+
+                        </ul>
+
+                        <!-- Tabs end -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

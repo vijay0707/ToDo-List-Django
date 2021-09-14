@@ -1,0 +1,23 @@
+{% extends 'tasks/main.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <div class="card mt-5">
+        <div class="card-header">
+            Delete Tasks
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title">Confirmation</h5>
+            <p class="card-text">Are you sure to delete task?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <a href="{% url 'home' %}" class="btn btn-sm btn-secondary">Cancel</a>
+                <input type="submit" class="btn btn-sm btn-danger" value="Save Changes">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
